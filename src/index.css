@@ -1,6 +1,7 @@
-/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;700&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,11 +28,14 @@ body {
 
 a {
   font-weight: 500;
-  color: #245B41;
   text-decoration: inherit;
 }
 a:hover {
   color: #88A179;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
 }
 
 h1 {
