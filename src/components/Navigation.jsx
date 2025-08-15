@@ -6,109 +6,120 @@ import {
   Button,
   Stack,
   Collapse,
+  Container,
   useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link as RouterLink, NavLink } from "react-router-dom";
+import { Link as RouterLink, NavLink, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+const NAV_LINKS = [
+  { label: "About", to: "/about" },
+  { label: "Experience", to: "/experience" },
+];
 
 export const Navigation = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+  const location = useLocation();
 
-  const navLinks = [
-    { label: "About", to: "/about" },
-    { label: "Experience", to: "/experience" },
-  ];
+  // Close mobile menu on route change
+  useEffect(() => {
+    onClose();
+  }, [location.pathname, onClose]);
+
+  const mobileMenuId = "primary-navigation";
 
   return (
-    <Box as="nav" w="100%" bg="white">
-      <Flex
-        maxW="1200px"
-        borderBottom="1px solid #eaeaea"
-        m="auto"
-        pl={12}
-        pr={12}
-        py={{ base: 4, md: 9 }}
-        justify="space-between"
-      >
-        {/* Logo + Mobile menu button on left */}
-        <Flex pl={2} align="center" gap={8}>
-          <Text
-            as={RouterLink}
-            to="/"
-            fontSize="2xl"
-            fontWeight="bold"
-            _hover={{ textDecoration: "none", color: "customRed.100" }}
-          >
-            Annelies Mälzer
-          </Text>
+    <Box as="nav" w="100%" bg="white" aria-label="Primary">
+      <Container maxW="1200px" px={{ base: 5, md: 12 }}>
+        <Flex
+          borderBottom="1px solid #eaeaea"
+          py={{ base: 4, md: 9 }}
+          justify="space-between"
+          align="center"
+        >
+          {/* Logo + Mobile toggle */}
+          <Flex align="center" gap={8}>
+            <Text
+              as={RouterLink}
+              to="/"
+              fontSize="2xl"
+              fontWeight="bold"
+              _hover={{ textDecoration: "none", color: "customRed.100" }}
+            >
+              Annelies Mälzer
+            </Text>
 
-          {/* Mobile hamburger */}
-          <IconButton
-            display={{ base: "flex", md: "none" }}
-            onClick={onToggle}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            variant="ghost"
-            aria-label="Toggle Navigation"
-            size="sm"
-          />
+            <IconButton
+              display={{ base: "inline-flex", md: "none" }}
+              onClick={onToggle}
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              variant="ghost"
+              aria-label="Toggle navigation menu"
+              aria-controls={mobileMenuId}
+              aria-expanded={isOpen}
+            />
+          </Flex>
+
+          {/* Desktop Nav */}
+          <Flex display={{ base: "none", md: "flex" }} align="center" gap={12}>
+            {NAV_LINKS.map((link) => (
+              <Button
+                key={link.to}
+                as={NavLink}
+                to={link.to}
+                end
+                variant="navLink"
+                minW="8ch" // prevents layout shift when bold
+              >
+                {link.label}
+              </Button>
+            ))}
+
+            <Button as={RouterLink} to="/contact" variant="cta" mr={9}>
+              Contact
+            </Button>
+          </Flex>
         </Flex>
+      </Container>
 
-        {/* Desktop Nav Links */}
-        <Flex display={{ base: "none", md: "flex" }} align="center" gap={12}>
-          {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} end>
-              {({ isActive }) => (
-                <Button
-                  as="span"
-                  variant="navLink" // uses Button.variants.navLink from theme
-                  data-active={isActive ? "true" : undefined}
-                  _hover={{ textDecoration: "none", color: "customRed.100", fontWeight:"500" }}
-                >
-                  {link.label}
-                </Button>
-              )}
-            </NavLink>
+      {/* Mobile Nav */}
+      <Collapse in={isOpen} animateOpacity unmountOnExit>
+        <Stack
+          id={mobileMenuId}
+          mt={2}
+          spacing={4}
+          display={{ md: "none" }}
+          px={6}
+          pb={4}
+        >
+          {NAV_LINKS.map((link) => (
+            <Button
+              key={link.to}
+              as={NavLink}
+              to={link.to}
+              end
+              variant="navLink"
+              w="full"
+              justifyContent="start"
+              onClick={onClose}
+            >
+              {link.label}
+            </Button>
           ))}
 
-          {/* Contact Button */}
           <Button
             as={RouterLink}
             to="/contact"
-            variant="cta" // uses Button.variants.cta from theme
-            mr={9}
+            variant="cta"
+            w="full"
+            px={6}
+            onClick={onClose}
           >
-            Contact
-          </Button>
-        </Flex>
-      </Flex>
-
-      {/* Mobile Menu Collapse */}
-      <Collapse in={isOpen} animateOpacity>
-        <Stack mt={2} spacing={4} display={{ md: "none" }} px={6} pb={4}>
-          {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} end>
-              {({ isActive }) => (
-                <Button
-                  as="span"
-                  variant="ghost"
-                  w="full"
-                  justifyContent="start"
-                  data-active={isActive ? "true" : undefined}
-                >
-                  {link.label}
-                </Button>
-              )}
-            </NavLink>
-          ))}
-
-          <Button as={RouterLink} to="/contact" variant="cta" w="full" px={6}>
             Contact
           </Button>
         </Stack>
       </Collapse>
-
-      {/* Spacer */}
-      <Box height="10px" />
     </Box>
   );
 };

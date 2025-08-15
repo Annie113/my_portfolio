@@ -96,30 +96,6 @@ const Footer = () => {
           </GridItem>
         </Grid>
 
-        {/* Bottom pill / status bar */}
-        <Flex
-          width="100%"
-          mt={{ base: 12, md: 16 }}
-          bg="black"
-          color="white"
-          px={{ base: 5, md: 8 }}
-          py={{ base: 4, md: 5 }}
-          align="center"
-          justify="space-between"
-          wrap="wrap"
-          gap={4}
-        >
-          <Text fontFamily="mono" fontSize={{ base: "sm", md: "md" }}>
-            Version <u>1.0.0</u> — Last Updated: {new Date().toLocaleDateString()}
-          </Text>
-
-          <HStack spacing={{ base: 4, md: 8 }} fontSize={{ base: "sm", md: "md" }}>
-            <Link href="/rss.xml">RSS</Link>
-            <Link as={RouterLink} to="/privacy">Privacy</Link>
-            <Link as={RouterLink} to="/more">More Info</Link>
-          </HStack>
-        </Flex>
-
         {/* Bottom padding for breathing room */}
         <Box h={{ base: 8, md: 10 }} />
       </Box>

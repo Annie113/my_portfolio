@@ -12,8 +12,9 @@ import {
   SimpleGrid,
   Stack,
   AspectRatio,
+  Icon,
 } from "@chakra-ui/react";
-import { FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaDownload, FaArrowRight } from "react-icons/fa";
 
 export const HomePage = () => {
   return (
@@ -57,7 +58,7 @@ export const HomePage = () => {
               , and I am very excited to start a new opportunity.
             </Text>
             <Link
-              href="/CV-Annelies.pdf"
+              href="/CV-AnneliesMaelzer.pdf"
               download
               fontWeight="bold"
               fontSize="sm"
@@ -96,10 +97,29 @@ export const HomePage = () => {
             justify="space-between"
             borderTop="1px solid"
             borderColor="gray.100"
+            role="group" // enables _groupHover for children
           >
-            <Text fontWeight="bold" color="customBlue.100" fontSize="sm">
-              CHECK OUT MY SOCIALS
-            </Text>
+            <HStack spacing={2} align="center">
+              <Text
+                fontWeight="bold"
+                color="customBlue.100"
+                fontSize="sm"
+                display="flex"
+                alignItems="center"
+                gap={2}
+              >
+                CHECK OUT MY SOCIALS
+              </Text>
+              {/* Animated arrow */}
+              <Icon
+                as={FaArrowRight}
+                boxSize="1em"
+                color="customBlue.100"
+                transition="transform 0.2s ease-in-out"
+                _groupHover={{ transform: "translateX(6px)" }}
+                aria-hidden="true"
+              />
+            </HStack>
 
             <HStack spacing={1}>
               <Tooltip label="LinkedIn" hasArrow>
@@ -146,10 +166,8 @@ export const HomePage = () => {
       <Box
         maxW="1200px"
         mx="auto"
-        // px={{ base: 7, md: 12 }}
         textAlign="center"
       >
-        
         <Text
           maxW="90%"
           mx="auto"

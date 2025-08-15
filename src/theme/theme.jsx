@@ -21,52 +21,63 @@ const colors = {
     700: "#436E92",
   },
   customRed: {
-    100: "#b82331",
+    100: "#b82331", // used for active + hover
+    // 500: "#9b1f2a", // optional mid-tone if you need it later
   },
   gray: {
     100: "#eaeaea",
     500: "#908F8F",
+    900: "#111111",
   },
 };
 
-// Link styles
-const Link = {
-  baseStyle: {},
-  variants: {
-    nav: {},
-  },
-};
-
-// Button styles
+// Components
 const Button = {
   variants: {
+    // Navigation link button (used with as={NavLink})
     navLink: {
-      variant: "link",
+      bg: "transparent",
+      px: 0,
+      height: "auto",
       color: "gray.500",
-      fontVariationSettings: "'wght' 400",
+      fontWeight: "normal",
+      textDecoration: "none",
       _hover: {
-        color: "customRed.500",
-        fontVariationSettings: "'wght' 700",
-        letterSpacing: "0.1px", 
+        color: "customRed.100",
+        fontWeight: "bold",
+        textDecoration: "none",
+      },
+      // Active route: NavLink sets aria-current="page"
+      "&[aria-current='page']": {
+        fontWeight: "bold",
+        color: "customRed.100",
+      },
+      _focusVisible: {
+        boxShadow: "0 0 0 2px var(--chakra-colors-gray-100)",
+        outline: "none",
       },
     },
+
+    // Call-to-action button
     cta: {
       bg: "black",
       color: "white",
       borderRadius: "full",
       _hover: { bg: "customBlue.100" },
+      _focusVisible: {
+        boxShadow: "0 0 0 2px var(--chakra-colors-gray-100)",
+        outline: "none",
+      },
     },
   },
 };
 
-// IconButton styles
 const IconButton = {
   variants: {
     social: {},
   },
 };
 
-// ✅ Heading styles
 const Heading = {
   variants: {
     h2: {
@@ -76,14 +87,21 @@ const Heading = {
   },
 };
 
+const Link = {
+  baseStyle: {}, // (not used for nav; kept for future)
+  variants: {
+    nav: {},
+  },
+};
+
 const theme = extendTheme({
   breakpoints,
   colors,
   components: {
-    Link,
     Button,
     IconButton,
-    Heading, // ✅ Added Heading component here
+    Heading,
+    Link,
   },
 });
 
