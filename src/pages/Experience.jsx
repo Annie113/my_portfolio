@@ -195,6 +195,74 @@ export const Experience = () => {
                 </AccordionPanel>
               </>
             </AccordionItem>
+                          {/* Study 4 */}
+            <AccordionItem border="none" mb={4}>
+              <>
+                <h3>
+                  <AccordionButton
+                    bg="customBlue.500"
+                    color="white"
+                    _hover={{ bg: "customBlue.700" }}
+                    px={6}
+                    py={4}
+                    borderRadius="md"
+                    justifyContent="space-between"
+                  >
+                    <Text fontWeight="bold">
+                      HAVO Certificates in Dutch, Biology and English @ VAVO Novacollege
+                    </Text>
+                    <Text fontWeight="medium">2011 - 2012</Text>
+                  </AccordionButton>
+                </h3>
+                <AccordionPanel
+                  bg="#fff"
+                  color="#4a5568"
+                  p={6}
+                  borderRadius="md"
+                >
+                  <Text fontSize="sm" mb={2}>
+                    📍 Haarlem, the Netherlands
+                  </Text>
+                  <Text fontSize="sm">
+                    Certificates in Higher General Secondary Education.
+                  </Text>
+                </AccordionPanel>
+              </>
+            </AccordionItem>
+                          {/* Study 5 */}
+            <AccordionItem border="none" mb={4}>
+              <>
+                <h3>
+                  <AccordionButton
+                    bg="customBlue.500"
+                    color="white"
+                    _hover={{ bg: "customBlue.700" }}
+                    px={6}
+                    py={4}
+                    borderRadius="md"
+                    justifyContent="space-between"
+                  >
+                    <Text fontWeight="bold">
+                      VMBO-TL Diploma @ VAVO Novacollege
+                    </Text>
+                    <Text fontWeight="medium">2006 - 2010</Text>
+                  </AccordionButton>
+                </h3>
+                <AccordionPanel
+                  bg="#fff"
+                  color="#4a5568"
+                  p={6}
+                  borderRadius="md"
+                >
+                  <Text fontSize="sm" mb={2}>
+                    📍 Haarlem, the Netherlands
+                  </Text>
+                  <Text fontSize="sm">
+                    Preparatory Secondary Vocational Education.
+                  </Text>
+                </AccordionPanel>
+              </>
+            </AccordionItem>
           </Accordion>
         </Box>
       </Box>
@@ -491,7 +559,7 @@ export const Experience = () => {
                     </Link>
                   </Text>
                   <Text fontSize="sm" mb={4}>
-                    While studying, I worked part-time in a role that strengthened my skills in sales and customer service.
+                    While studying, I worked part-time as a sales assistant at the Kruidvat drugstore, where I strengthened my skills in sales and customer service.
                   </Text>
                   <HStack spacing={2} flexWrap="wrap">
                     {["Customer Service", "Sales"].map((tag) => (

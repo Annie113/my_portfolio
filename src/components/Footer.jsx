@@ -73,25 +73,13 @@ const Footer = () => {
               Contact me
             </Text>
             <Stack spacing={4} fontSize={{ base: "md", md: "lg" }}>
-              <Link href="mailto:you@example.com">Email</Link>
+              <Link href="mailto:anneliesarbouw@gmail.com">Email</Link>
               <Link href="https://www.linkedin.com/in/anneliesarbouw/" isExternal>
                 LinkedIn
               </Link>
               <Link href="https://github.com/Annie113" isExternal>
                 GitHub
               </Link>
-              {/* Optional socials row like in your old footer */}
-              <HStack spacing={5} pt={2} color="gray.800">
-                <Link href="https://facebook.com" isExternal aria-label="Facebook">
-                  <FaFacebookF />
-                </Link>
-                <Link href="https://instagram.com" isExternal aria-label="Instagram">
-                  <FaInstagram />
-                </Link>
-                <Link href="https://www.linkedin.com/in/anneliesarbouw/" isExternal aria-label="LinkedIn">
-                  <FaLinkedinIn />
-                </Link>
-              </HStack>
             </Stack>
           </GridItem>
         </Grid>

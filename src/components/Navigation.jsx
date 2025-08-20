@@ -87,7 +87,7 @@ export const Navigation = () => {
       <Collapse in={isOpen} animateOpacity unmountOnExit>
         <Stack
           id={mobileMenuId}
-          mt={2}
+          mt={6} 
           spacing={4}
           display={{ md: "none" }}
           px={6}
@@ -95,6 +95,7 @@ export const Navigation = () => {
         >
           {NAV_LINKS.map((link) => (
             <Button
+              pb={4}
               key={link.to}
               as={NavLink}
               to={link.to}
@@ -109,11 +110,13 @@ export const Navigation = () => {
           ))}
 
           <Button
+            
             as={RouterLink}
             to="/contact"
             variant="cta"
             w="full"
             px={6}
+            my={6}
             onClick={onClose}
           >
             Contact

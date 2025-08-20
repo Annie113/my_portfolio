@@ -201,7 +201,9 @@ export const HomePage = () => {
           >
             Projects
           </Heading>
-
+            <Text fontSize="md" color="gray.600" pb={4}>
+              These three projects were created as part of the front-end developer course I recently completed.
+            </Text>
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
             spacing={8}
