@@ -305,6 +305,58 @@ export const Experience = () => {
                     justifyContent="space-between"
                   >
                     <Text fontWeight="bold">
+                      Full-time Parent of 2 while studying Webdevelopment
+                    </Text>
+                    <Text fontWeight="medium"> 01 / 2020 - Present </Text>
+                  </AccordionButton>
+                </h3>
+                <AccordionPanel
+                  bg="#fff"
+                  color="#4a5568"
+                  p={6}
+                  borderRadius="md"
+                >
+                  <Text fontSize="sm" mb={2}>
+                    📍 Haarlem, The Netherlands &nbsp;&nbsp; 🔗{" "}
+                  </Text>
+                  <Text fontSize="sm" mb={4}>
+                    Taking care of my two kids (2 and 4) while studying Webdevelopment. 
+                  </Text>
+                  <HStack spacing={2} flexWrap="wrap">
+                    {["Time Management", "Multitasking", "Planning and Scheduling", "Patience", "Creative problem solving", "Active listening"].map(
+                      (tag) => (
+                        <Box
+                          key={tag}
+                          px={3}
+                          py={1}
+                          bg="customBlue.25"
+                          borderRadius="md"
+                          fontSize="xs"
+                          fontWeight="bold"
+                        >
+                          {tag}
+                        </Box>
+                      )
+                    )}
+                  </HStack>
+                </AccordionPanel>
+              </>
+            </AccordionItem>
+
+            {/* Work Experience 2 */}
+            <AccordionItem border="none" mb={4}>
+              <>
+                <h3>
+                  <AccordionButton
+                    bg="customBlue.500"
+                    color="white"
+                    _hover={{ bg: "customBlue.700" }}
+                    px={6}
+                    py={4}
+                    borderRadius="md"
+                    justifyContent="space-between"
+                  >
+                    <Text fontWeight="bold">
                       Webdesigner @ MEO
                     </Text>
                     <Text fontWeight="medium"> 04 / 2018 - 01 / 2020 </Text>
@@ -352,7 +404,8 @@ export const Experience = () => {
               </>
             </AccordionItem>
 
-            {/* Work Experience 2 */}
+
+            {/* Work Experience 3 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
@@ -409,7 +462,7 @@ export const Experience = () => {
               </>
             </AccordionItem>
 
-            {/* Work Experience 3 */}
+            {/* Work Experience 4 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
@@ -466,7 +519,7 @@ export const Experience = () => {
               </>
             </AccordionItem>
 
-            {/* Work Experience 4 */}
+            {/* Work Experience 5 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
@@ -523,7 +576,7 @@ export const Experience = () => {
               </>
             </AccordionItem>
 
-            {/* Work Experience 5 */}
+            {/* Work Experience 6 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
