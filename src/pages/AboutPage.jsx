@@ -19,7 +19,7 @@ const AboutPage = () => {
           {/* Left Side: Image */}
           <Box flex={1}>
             <Image
-              src="/images/about.jpg"
+              src="/images/about.png"
               alt="About us"
               objectFit="cover"
               w="80%"
