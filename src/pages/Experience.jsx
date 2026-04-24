@@ -305,7 +305,7 @@ export const Experience = () => {
                     justifyContent="space-between"
                   >
                     <Text fontWeight="bold">
-                      Webdevelopment Training Programme
+                      Webdevelopment Training Programme @ Amsterdam Tech Academy
                     </Text>
                     <Text fontWeight="medium"> 10 / 2025 - 04 / 2026 </Text>
                   </AccordionButton>
@@ -317,7 +317,7 @@ export const Experience = () => {
                   borderRadius="md"
                 >
                   <Text fontSize="sm" mb={2}>
-                    📍 Haarlem, The Netherlands &nbsp;&nbsp; 🔗{" "}
+                    📍 Amsterdam, The Netherlands &nbsp;&nbsp; 🔗{" "}
                   </Text>
                   <Text fontSize="sm" mb={4}>
                     Strengtening my skills in HTML, CSS and Bootstrap by working with a similar CMS as Wordpress. 
@@ -411,7 +411,7 @@ export const Experience = () => {
                     <Text fontWeight="bold">
                       Webdesigner @ MEO
                     </Text>
-                    <Text fontWeight="medium"> 04 / 2018 - 02 / 2020 </Text>
+                    <Text fontWeight="medium"> 03 / 2018 - 02 / 2020 </Text>
                   </AccordionButton>
                 </h3>
                 <AccordionPanel
@@ -431,9 +431,8 @@ export const Experience = () => {
                     </Link>
                   </Text>
                   <Text fontSize="sm" mb={4}>
-                    This was my first professional role in coding. I began as an intern and later transitioned into 
-                    a part-time position. During this time, I worked extensively with WordPress, CSS, HTML, and 
-                    Adobe Photoshop, and also created design mock-ups using Adobe XD. 
+                    This was my first professional role in coding. I worked extensively with WordPress (WPBakery), CSS, HTML, and 
+                    Adobe Photoshop, WooCommerce and also created design mock-ups using Adobe XD. 
                   </Text>
                   <HStack spacing={2} flexWrap="wrap">
                     {["HTML", "CSS", "Wordpress", "Adobe XD", "Adobe Photoshop", "Woocommerce", "WPBakery"].map(
@@ -473,7 +472,7 @@ export const Experience = () => {
                     <Text fontWeight="bold">
                      Product Specialist Customer Support @ Visma
                     </Text>
-                    <Text fontWeight="medium"> 04/2017 - 07/2017</Text>
+                    <Text fontWeight="medium"> 02/2017 - 07/2017</Text>
                   </AccordionButton>
                 </h3>
                 <AccordionPanel
@@ -585,7 +584,7 @@ export const Experience = () => {
                     justifyContent="space-between"
                   >
                     <Text fontWeight="bold">
-                     Marting Internship @ Ahold AH Allerhande
+                     Marketing Internship @ Ahold AH Allerhande
                     </Text>
                     <Text fontWeight="medium"> 07/2015 - 02/2016</Text>
                   </AccordionButton>
