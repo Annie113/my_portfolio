@@ -63,7 +63,7 @@ export const HomePage = () => {
               fontWeight="bold"
               fontSize="sm"
               mt={11}
-              color="customBlue.100"
+              color="customBlue.500"
               textTransform="uppercase"
               pb={8}
             >
