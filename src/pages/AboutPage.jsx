@@ -40,12 +40,11 @@ const AboutPage = () => {
                 In 2018, I began my journey in tech with an internship that turned into a job, where I gained hands-on 
                 experience working with <Text as="span" color="customRed.100" fontWeight="bold">WordPress</Text>, <Text as="span" color="customRed.100" fontWeight="bold">HTML</Text> and <Text as="span" color="customRed.100" fontWeight="bold">CSS</Text>. 
                 After taking time away from my career to raise my two children, I decided to return to development with renewed focus. To refresh and expand my skills, I recently completed 
-                a <Text as="span" color="customRed.100" fontWeight="bold">Front-end Development program</Text>, deepening my expertise in 
-                <Text as="span" color="customRed.100" fontWeight="bold">JavaScript</Text> and <Text as="span" color="customRed.100" fontWeight="bold">React</Text> — technologies I’ve come to 
+                a <Text as="span" color="customRed.100" fontWeight="bold">Front-end Development program</Text>, deepening my expertise in&nbsp;<Text as="span" color="customRed.100" fontWeight="bold">JavaScript</Text> and <Text as="span" color="customRed.100" fontWeight="bold">React</Text> — technologies I’ve come to 
                 truly enjoy working with. My recent projects, including this portfolio site, were all coded by me in Visual Studio Code, reflecting both my technical ability and eye for detail. <br></br>
                 <br></br>
                 Over the past six months, I have participated in a <Text as="span" color="customRed.100" fontWeight="bold">Web Development Training Program </Text>to support my return to the 
-                workforce. During this program, I gained hands-on experience working with a <Text as="span" color="customRed.100" fontWeight="bold">CMS</Text> similar to WordPress and further strengthened my skills in HTML, CSS, JavaScript, and 
+                workforce. During this program, I gained hands-on experience working with a <Text as="span" color="customRed.100" fontWeight="bold">CMS</Text> similar to WordPress and further strengthened my skills in HTML, CSS, JavaScript, and&nbsp;
                 <Text as="span" color="customRed.100" fontWeight="bold">Bootstrap.</Text><br></br>
                 <br></br>
                 I’m now seeking a <Text as="span" color="customRed.100" fontWeight="bold">junior front-end development </Text>
