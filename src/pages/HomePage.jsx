@@ -102,7 +102,7 @@ export const HomePage = () => {
             <HStack spacing={2} align="center">
               <Text
                 fontWeight="bold"
-                color="customBlue.100"
+                color="customBlue.500"
                 fontSize="sm"
                 display="flex"
                 alignItems="center"
