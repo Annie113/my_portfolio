@@ -51,9 +51,9 @@ export const HomePage = () => {
               </Text>
             </Heading>
             <Text fontSize="md" color="gray.600">
-              I currently finished my{" "}
+              I have 3 years experience as a{" "}
               <Text as="span" color="customRed.100" fontWeight="bold">
-                front-end developer certificate
+                front-end developer
               </Text>
               , and I am very excited to start a new opportunity.
             </Text>
