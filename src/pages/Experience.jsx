@@ -305,9 +305,61 @@ export const Experience = () => {
                     justifyContent="space-between"
                   >
                     <Text fontWeight="bold">
+                      Webdevelopment Training Programme
+                    </Text>
+                    <Text fontWeight="medium"> 10 / 2025 - 04 / 2026 </Text>
+                  </AccordionButton>
+                </h3>
+                <AccordionPanel
+                  bg="#fff"
+                  color="#4a5568"
+                  p={6}
+                  borderRadius="md"
+                >
+                  <Text fontSize="sm" mb={2}>
+                    📍 Haarlem, The Netherlands &nbsp;&nbsp; 🔗{" "}
+                  </Text>
+                  <Text fontSize="sm" mb={4}>
+                    Strengtening my skills in HTML, CSS and Bootstrap by working with a similar CMS as Wordpress. 
+                  </Text>
+                  <HStack spacing={2} flexWrap="wrap">
+                    {["CSS", "HTML", "Bootstrap", "Canva", "Photopea", "Collaborate with Colleages"].map(
+                      (tag) => (
+                        <Box
+                          key={tag}
+                          px={3}
+                          py={1}
+                          bg="customBlue.25"
+                          borderRadius="md"
+                          fontSize="xs"
+                          fontWeight="bold"
+                        >
+                          {tag}
+                        </Box>
+                      )
+                    )}
+                  </HStack>
+                </AccordionPanel>
+              </>
+            </AccordionItem>
+
+            {/* Work Experience 2 */}
+            <AccordionItem border="none" mb={4}>
+              <>
+                <h3>
+                  <AccordionButton
+                    bg="customBlue.500"
+                    color="white"
+                    _hover={{ bg: "customBlue.700" }}
+                    px={6}
+                    py={4}
+                    borderRadius="md"
+                    justifyContent="space-between"
+                  >
+                    <Text fontWeight="bold">
                       Full-time Parent of 2 while studying Webdevelopment
                     </Text>
-                    <Text fontWeight="medium"> 01 / 2020 - Present </Text>
+                    <Text fontWeight="medium"> 01 / 2020 - 10 / 2025 </Text>
                   </AccordionButton>
                 </h3>
                 <AccordionPanel
@@ -343,7 +395,7 @@ export const Experience = () => {
               </>
             </AccordionItem>
 
-            {/* Work Experience 2 */}
+            {/* Work Experience 3 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
@@ -359,7 +411,7 @@ export const Experience = () => {
                     <Text fontWeight="bold">
                       Webdesigner @ MEO
                     </Text>
-                    <Text fontWeight="medium"> 04 / 2018 - 01 / 2020 </Text>
+                    <Text fontWeight="medium"> 04 / 2018 - 02 / 2020 </Text>
                   </AccordionButton>
                 </h3>
                 <AccordionPanel
@@ -405,7 +457,7 @@ export const Experience = () => {
             </AccordionItem>
 
 
-            {/* Work Experience 3 */}
+            {/* Work Experience 4 */}
             <AccordionItem border="none" mb={4}>
               <>
                 <h3>
