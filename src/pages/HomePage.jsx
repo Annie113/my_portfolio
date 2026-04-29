@@ -264,7 +264,7 @@ export const HomePage = () => {
                 </AspectRatio>
               </Link>
               <Text fontWeight="bold">Wildlotus</Text>
-              <Text>A simple homgepage and for a wedding and events company.</Text>
+              <Text>A simple homgepage for a wedding and events company.</Text>
             </Stack>
 
           </SimpleGrid>
