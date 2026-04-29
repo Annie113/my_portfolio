@@ -26,7 +26,6 @@ export const HomePage = () => {
         direction={{ base: "column", md: "row" }}
         bg="white"
       >
-        {/* Left Side: Text */}
         <Flex
           flex={1}
           p={{ base: 14 }}
@@ -43,6 +42,7 @@ export const HomePage = () => {
             <Text fontSize="sm" color="customRed.100" fontWeight="bold">
               HELLO!
             </Text>
+
             <Heading fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold">
               I'm Annelies{" "}
               <Text as="span" color="customBlue.500">
@@ -50,6 +50,7 @@ export const HomePage = () => {
                 A Front-end Developer
               </Text>
             </Heading>
+
             <Text fontSize="md" color="gray.600">
               I have 3 years experience as a{" "}
               <Text as="span" color="customRed.100" fontWeight="bold">
@@ -57,6 +58,7 @@ export const HomePage = () => {
               </Text>
               , and I am very excited to start a new opportunity.
             </Text>
+
             <Link
               href="/CV-AnneliesMaelzer.pdf"
               download
@@ -75,7 +77,7 @@ export const HomePage = () => {
           </VStack>
         </Flex>
 
-        {/* Right Side: Image */}
+        {/* Right Side */}
         <Flex flex={1} position="relative" align="center" justify="center">
           <Image
             src="/images/me.jpg"
@@ -85,9 +87,8 @@ export const HomePage = () => {
             h="73%"
           />
 
-          {/* Bottom bar with LinkedIn & GitHub icons */}
           <HStack
-            spacing={0.2}
+            spacing={1}
             p={3}
             bg="white"
             position="absolute"
@@ -97,7 +98,7 @@ export const HomePage = () => {
             justify="space-between"
             borderTop="1px solid"
             borderColor="gray.100"
-            role="group" // enables _groupHover for children
+            role="group"
           >
             <HStack spacing={2} align="center">
               <Text
@@ -110,14 +111,13 @@ export const HomePage = () => {
               >
                 CHECK OUT MY SOCIALS
               </Text>
-              {/* Animated arrow */}
+
               <Icon
                 as={FaArrowRight}
                 boxSize="1em"
                 color="customBlue.100"
                 transition="transform 0.2s ease-in-out"
                 _groupHover={{ transform: "translateX(6px)" }}
-                aria-hidden="true"
               />
             </HStack>
 
@@ -133,10 +133,6 @@ export const HomePage = () => {
                     variant="ghost"
                     size="lg"
                     fontSize="2xl"
-                    _hover={{
-                      bg: "transparent",
-                      color: "customBlue.500",
-                    }}
                   />
                 </Link>
               </Tooltip>
@@ -147,13 +143,8 @@ export const HomePage = () => {
                     icon={<FaGithub />}
                     aria-label="GitHub"
                     variant="ghost"
-                    pr={{ base: 15.5, lg: 2, xl: 6 }}
                     size="lg"
                     fontSize="2xl"
-                    _hover={{
-                      bg: "transparent",
-                      color: "customBlue.500",
-                    }}
                   />
                 </Link>
               </Tooltip>
@@ -162,12 +153,8 @@ export const HomePage = () => {
         </Flex>
       </Flex>
 
-      {/* About Me Section */}
-      <Box
-        maxW="1200px"
-        mx="auto"
-        textAlign="center"
-      >
+      {/* About */}
+      <Box maxW="1200px" mx="auto" textAlign="center">
         <Text
           maxW="90%"
           mx="auto"
@@ -176,18 +163,20 @@ export const HomePage = () => {
           py={{ base: 12, md: 10 }}
           px={{ base: 6, md: 12 }}
           fontSize={{ base: "md", md: "lg", lg: "xl" }}
-          fontWeight="550"
+          fontWeight="semibold"
           color="gray.800"
           my={10}
           lineHeight="1.8"
         >
-          "I'm a perfectionistic and ambitious person with a strong drive for quality and results.<br></br> 
-          My creativity and analytical mindset allow me to approach challenges from multiple angles.<br></br>
-          My empathy helps me understand and connect with others on a deeper level." <br></br>
+          "I'm a perfectionistic and ambitious person with a strong drive for quality and results.
+          <br />
+          My creativity and analytical mindset allow me to approach challenges from multiple angles.
+          <br />
+          My empathy helps me understand and connect with others on a deeper level."
         </Text>
       </Box>
 
-      {/* --------------------------------- Projects -------------------------------- */}
+      {/* Projects 1 */}
       <Box bg="#fff" py={10}>
         <Box maxW="1200px" mx="auto" px={{ base: 7, md: 12 }}>
           <Heading
@@ -197,91 +186,87 @@ export const HomePage = () => {
             borderBottom="1px"
             borderColor="gray.100"
             pb={8}
-            variant="h2"
           >
-            Projects
+            Projects WINC Academy Course
           </Heading>
-            <Text fontSize="md" color="gray.600" pb={4}>
-              These three projects were created as part of the front-end developer course I recently completed.
-            </Text>
-          <SimpleGrid
-            columns={{ base: 1, md: 3 }}
-            spacing={8}
-            py={{ base: 2, md: 6 }}
-          >
-            {/* Block 1 */}
+
+          <Text fontSize="md" color="gray.600" pb={4}>
+            These three projects were created as part of the front-end developer course I recently completed at WINC Academy.
+          </Text>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             <Stack spacing={4}>
               <Link href="https://my-recipe-grid.netlify.app/" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
-                  <Image
-                    src="/images/my-recipe-page.jpeg"
-                    alt="My Recipe App Screenshot"
-                    cursor="pointer"
-                    borderRadius="md"
-                    objectFit="cover"
-                    _hover={{
-                      transform: "scale(1.02)",
-                      transition: "0.2s ease-in-out",
-                    }}
-                  />
+                  <Image src="/images/my-recipe-page.jpeg" />
                 </AspectRatio>
               </Link>
               <Text fontWeight="bold">My Recipe App</Text>
-              <Text>
-                A basic recipe app built with a given dataset, JavaScript, React
-                Vite and Chakra UI. This was my first ever React app for my Winc
-                Academy studies.
-              </Text>
+              <Text>A basic recipe app built with React Vite and Chakra UI.</Text>
             </Stack>
 
-            {/* Block 2 */}
             <Stack spacing={4}>
               <Link href="https://wildlotus.netlify.app/" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
-                  <Image
-                    src="/images/wildlotuslogo.png"
-                    alt="Wildlotus logo"
-                    cursor="pointer"
-                    borderRadius="md"
-                    objectFit="cover"
-                    _hover={{
-                      transform: "scale(1.02)",
-                      transition: "0.2s ease-in-out",
-                    }}
-                  />
+                  <Image src="/images/wildlotuslogo.png" />
                 </AspectRatio>
               </Link>
               <Text fontWeight="bold">Wildlotus</Text>
-              <Text>
-                An advanced yoga events app built with a JSON server, JavaScript,
-                React Vite, React Router and Chakra UI. Also part of my Winc
-                Academy studies.
-              </Text>
+              <Text>An advanced yoga events app built with React Router and Chakra UI.</Text>
             </Stack>
 
-            {/* Block 3 */}
             <Stack spacing={4}>
               <Link href="https://optimamed.netlify.app/" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
-                  <Image
-                    src="/images/optimamed-logo.png"
-                    alt="Optimamed logo"
-                    cursor="pointer"
-                    borderRadius="md"
-                    objectFit="contain"
-                    _hover={{
-                      transform: "scale(1.02)",
-                      transition: "0.2s ease-in-out",
-                    }}
-                  />
+                  <Image src="/images/optimamed-logo.png" />
                 </AspectRatio>
               </Link>
               <Text fontWeight="bold">Optimamed</Text>
-              <Text>
-                A medical homepage made with CSS Grid, Flexbox, and custom CSS
-                variables.
-              </Text>
+              <Text>A medical homepage made with CSS Grid and Flexbox.</Text>
             </Stack>
+          </SimpleGrid>
+        </Box>
+      </Box>
+
+      {/* Projects 2 (duplicate) */}
+      <Box bg="#fff" py={10}>
+        <Box maxW="1200px" mx="auto" px={{ base: 7, md: 12 }}>
+          <Heading
+            as="h2"
+            fontWeight="bold"
+            mb={10}
+            borderBottom="1px"
+            borderColor="gray.100"
+            pb={8}
+          >
+            Projects work experience programme
+          </Heading>
+
+          <Text fontSize="md" color="gray.600" pb={4}>
+            These two projects were created while i was doing my working experience programme.
+          </Text>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+            <Stack spacing={4}>
+              <Link href="https://jm-dressage.netlify.app" isExternal>
+                <AspectRatio ratio={16 / 6} w="90%">
+                  <Image src="/images/horse.png" />
+                </AspectRatio>
+              </Link>
+              <Text fontWeight="bold">JM Dressage Homepage</Text>
+              <Text>A simple homgepage and "over ons" page for a horse company.</Text>
+            </Stack>
+
+            <Stack spacing={4}>
+              <Link href="https://eternal-vowss.netlify.app/" isExternal>
+                <AspectRatio ratio={16 / 6} w="90%">
+                  <Image src="/images/eternal-vows.png" />
+                </AspectRatio>
+              </Link>
+              <Text fontWeight="bold">Wildlotus</Text>
+              <Text>A simple homgepage and for a wedding and events company.</Text>
+            </Stack>
+
           </SimpleGrid>
         </Box>
       </Box>
