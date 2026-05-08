@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Heading,
@@ -5,688 +6,343 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  AccordionIcon,
   Text,
-  HStack,
-  Link
+  Stack,
+  Link,
+  Tag,
+  TagLabel,
+  Wrap,
+  Container,
 } from "@chakra-ui/react";
+
+/* -------------------------------------------------------------------------- */
+/*                                   DATA                                     */
+/* -------------------------------------------------------------------------- */
+
+const studies = [
+  {
+    title: "Front-end Development @ WINC Academy",
+    period: "Jul 2025",
+    location: "Amsterdam, The Netherlands",
+    description:
+      "This course taught me the core technologies of the web — HTML, CSS, JavaScript, and React. I learned to build interactive websites through hands-on projects with personal guidance from experienced instructors.",
+    skills: [
+      "HTML",
+      "CSS",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Vite",
+      "JSON",
+      "Node.js",
+      "Git",
+    ],
+    link: "https://credsverse.com/credentials/09dd44f6-c081-4f81-88e1-bb7308a30a20",
+    linkLabel: "View Certificate",
+  },
+  {
+    title:
+      "Bachelor of Science in Nutrition and New Product Management",
+    period: "2012 – 2016",
+    location: "Amsterdam, The Netherlands",
+    description:
+      "Prepared for a career in the food industry, focusing on the development and marketing of healthy and innovative food products.",
+    skills: [
+      "Food Labeling",
+      "Prototyping",
+      "Market Research",
+      "Consumer Behaviour",
+      "Food Safety",
+      "Nutritional Analysis",
+      "Concept Development",
+    ],
+  },
+  {
+    title:
+      "Certificate International English Language @ University of Cambridge",
+    period: "2015",
+    location: "Amsterdam, The Netherlands",
+    description:
+      "Certified proficiency in English, demonstrating advanced skills in listening, reading, writing, and speaking for academic and professional contexts.",
+    skills: ["English Language"],
+  },
+  {
+    title:
+      "HAVO Certificates in Dutch, Biology and English @ VAVO Nova College",
+    period: "2011 – 2012",
+    location: "Haarlem, The Netherlands",
+    description:
+      "Certificates in Higher General Secondary Education.",
+  },
+  {
+    title: "VMBO-TL Diploma @ VAVO Nova College",
+    period: "2006 – 2010",
+    location: "Haarlem, The Netherlands",
+    description:
+      "Preparatory Secondary Vocational Education.",
+  },
+];
+
+const workExperience = [
+  {
+    title: "Web Development Training Programme @ Amsterdam Tech Academy",
+    period: "Oct 2025 – Apr 2026",
+    location: "Amsterdam, The Netherlands",
+    description:
+      "Strengthening my skills in HTML, CSS, Bootstrap, and CMS development while collaborating with colleagues on practical projects.",
+    skills: [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Canva",
+      "Photopea",
+      "Team Collaboration",
+    ],
+  },
+  {
+    title:
+      "Full-time Parent of 2 while studying Web Development",
+    period: "2020 – 2025",
+    location: "Haarlem, The Netherlands",
+    description:
+      "Combined parenting with studying web development, strengthening skills in planning, communication, multitasking, and problem solving.",
+    skills: [
+      "Time Management",
+      "Planning",
+      "Multitasking",
+      "Problem Solving",
+      "Active Listening",
+    ],
+  },
+  {
+    title: "Web Designer @ MEO",
+    period: "Mar 2018 – Feb 2020",
+    location: "Alkmaar, The Netherlands",
+    description:
+      "Worked extensively with WordPress, HTML, CSS, WooCommerce, Adobe Photoshop, and Adobe XD to create and maintain websites and design mock-ups.",
+    skills: [
+      "HTML",
+      "CSS",
+      "WordPress",
+      "WooCommerce",
+      "Adobe XD",
+      "Adobe Photoshop",
+      "WPBakery",
+    ],
+    link: "https://wijzijnmeo.nl/",
+    linkLabel: "Visit Website",
+  },
+  {
+    title: "Product Specialist Customer Support @ Visma",
+    period: "Feb 2017 – Jul 2017",
+    location: "Amsterdam, The Netherlands",
+    description:
+      "Supported customers by phone and email regarding AccountView software while improving communication and advisory skills.",
+    skills: ["Customer Service", "AccountView"],
+    link: "https://www.visma.com/",
+    linkLabel: "Visit Website",
+  },
+  {
+    title: "Quality Assurance Internship @ Ahold Delhaize",
+    period: "Feb 2016 – Jun 2016",
+    location: "Zaandam, The Netherlands",
+    description:
+      "Completed my thesis within the Quality Assurance department focusing on health labels displayed on food packaging.",
+    skills: [
+      "Food Labeling",
+      "Customer Research",
+      "Nutrition",
+    ],
+    link: "https://www.aholddelhaize.com/",
+    linkLabel: "Visit Website",
+  },
+  {
+    title: "Marketing Internship @ Allerhande",
+    period: "Jul 2015 – Feb 2016",
+    location: "Zaandam, The Netherlands",
+    description:
+      "Contributed to marketing research, strategy support, proofreading, and administrative tasks for Allerhande magazine.",
+    skills: [
+      "Marketing Research",
+      "Customer Research",
+      "Marketing Strategy",
+      "Administration",
+    ],
+    link: "https://www.ah.nl/allerhande",
+    linkLabel: "Visit Website",
+  },
+  {
+    title: "Sales Assistant @ Kruidvat",
+    period: "Oct 2008 – Jun 2012",
+    location: "Haarlem, The Netherlands",
+    description:
+      "Worked part-time while studying, strengthening my sales and customer service skills.",
+    skills: ["Sales", "Customer Service"],
+    link: "https://www.kruidvat.nl/",
+    linkLabel: "Visit Website",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
+/*                              REUSABLE COMPONENT                            */
+/* -------------------------------------------------------------------------- */
+
+const ResumeAccordionItem = ({
+  title,
+  period,
+  location,
+  description,
+  skills,
+  link,
+  linkLabel,
+}) => {
+  return (
+    <AccordionItem border="none" mb={5}>
+      <h3>
+        <AccordionButton
+          bg="customBlue.500"
+          color="white"
+          borderRadius="xl"
+          px={6}
+          py={5}
+          transition="all 0.2s ease"
+          _hover={{
+            bg: "customBlue.700",
+            transform: "translateY(-2px)",
+          }}
+          _expanded={{
+            bg: "customBlue.700",
+          }}
+        >
+          <Box flex="1" textAlign="left">
+            <Stack
+              direction={{ base: "column", md: "row" }}
+              justify="space-between"
+              align={{ base: "flex-start", md: "center" }}
+              spacing={2}
+            >
+              <Text fontWeight="bold" fontSize={{ base: "sm", md: "md" }}>
+                {title}
+              </Text>
+
+              <Text
+                fontSize="sm"
+                fontWeight="medium"
+                opacity={0.9}
+                whiteSpace="nowrap"
+              >
+                {period}
+              </Text>
+            </Stack>
+          </Box>
+
+          <AccordionIcon />
+        </AccordionButton>
+      </h3>
+
+      <AccordionPanel
+        bg="white"
+        p={6}
+        borderRadius="xl"
+        mt={2}
+        border="1px solid"
+        borderColor="gray.100"
+      >
+        <Stack spacing={4}>
+          <Text fontSize="sm" color="gray.500">
+            📍 {location}
+          </Text>
+
+          <Text color="gray.700" lineHeight="tall">
+            {description}
+          </Text>
+
+          {link && (
+            <Link
+              href={link}
+              isExternal
+              color="customBlue.500"
+              fontWeight="semibold"
+              w="fit-content"
+              _hover={{
+                textDecoration: "none",
+                color: "customBlue.700",
+              }}
+            >
+              {linkLabel}
+            </Link>
+          )}
+
+          {skills && (
+            <Wrap spacing={3}>
+              {skills.map((skill) => (
+                <Tag
+                  key={skill}
+                  size="md"
+                  borderRadius="full"
+                  bg="customBlue.25"
+                  color="gray.700"
+                  px={3}
+                  py={1}
+                >
+                  <TagLabel>{skill}</TagLabel>
+                </Tag>
+              ))}
+            </Wrap>
+          )}
+        </Stack>
+      </AccordionPanel>
+    </AccordionItem>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                               SECTION COMPONENT                            */
+/* -------------------------------------------------------------------------- */
+
+const ResumeSection = ({ title, data }) => {
+  return (
+    <Box py={12}>
+      <Container maxW="1200px">
+        <Heading
+          as="h2"
+          variant="h2"
+          mb={10}
+          pb={6}
+          borderBottom="1px solid"
+          borderColor="gray.100"
+        >
+          {title}
+        </Heading>
+
+        <Accordion allowToggle>
+          {data.map((item) => (
+            <ResumeAccordionItem
+              key={item.title}
+              {...item}
+            />
+          ))}
+        </Accordion>
+      </Container>
+    </Box>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                                  PAGE                                      */
+/* -------------------------------------------------------------------------- */
 
 export const Experience = () => {
   return (
-    <>
-      {/* ----------------------------------- Studies ---------------------------------- */}
-      <Box bg="#fff" py={10} pl={{ base: 0, md: 2 }}>
-        <Box maxW="1200px" 
-             mx="auto"
-             pl={{ base: 6, md: 12 }}
-             >
-          <Heading
-            as="h2"
-            mb={10}
-            borderBottom="1px"
-            borderColor="gray.100"
-            pb={8}
-            variant="h2"
-          >
-            Studies
-          </Heading>
-        </Box>
+    <Box bg="white">
+      <ResumeSection title="Studies" data={studies} />
 
-        {/* Accordion */}
-        <Box maxW="1200px" 
-             mx="auto" 
-             px={{ base: 7, md: 12 }}
-             >
-          <Accordion allowToggle>
-            {/* Study 1 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Front-end Development @ WINC ACADEMY
-                    </Text>
-                    <Text fontWeight="medium"> 09 / 07 / 2025</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Amsterdam, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://credsverse.com/credentials/09dd44f6-c081-4f81-88e1-bb7308a30a20"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      CHECK OUT CERTIFICATE
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    This course thought me the core technologies of the web—HTML, CSS, and JavaScript—along with modern frameworks like React. 
-                    I learned to build interactive websites through a mix of hands-on projects with personal guidance from experienced instructors.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["HTML", "CSS", "React", "JS/TS", "Vite", "JSON", "NodeJS", "Git"].map(
-                      (tag) => (
-                        <Box
-                          key={tag}
-                          px={3}
-                          py={1}
-                          bg="customBlue.25"
-                          borderRadius="md"
-                          fontSize="xs"
-                          fontWeight="bold"
-                        >
-                          {tag}
-                        </Box>
-                      )
-                    )}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Study 2 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Bachelor in Science Nutrition and New Product Management
-                    </Text>
-                    <Text fontWeight="medium">2012 – 2016</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Amsterdam, the Netherlands
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    Prepares students to work in the food industry, particularly in the development and marketing of healthy, innovative food products.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Food labeling", "Prototyping", "Market Research", "Consumer behavior analysis", "Food Safety", "Nutritional analysis", "Concept development"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-              {/* Study 3 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Certificate International English Language @ University of Cambridge
-                    </Text>
-                    <Text fontWeight="medium">2015</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Amsterdam, the Netherlands
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    Certified proficiency in English, demonstrating advanced skills in listening, reading, writing, and speaking for academic and professional contexts.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["English Language"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-                          {/* Study 4 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      HAVO Certificates in Dutch, Biology and English @ VAVO Novacollege
-                    </Text>
-                    <Text fontWeight="medium">2011 - 2012</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Haarlem, the Netherlands
-                  </Text>
-                  <Text fontSize="sm">
-                    Certificates in Higher General Secondary Education.
-                  </Text>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-                          {/* Study 5 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      VMBO-TL Diploma @ VAVO Novacollege
-                    </Text>
-                    <Text fontWeight="medium">2006 - 2010</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Haarlem, the Netherlands
-                  </Text>
-                  <Text fontSize="sm">
-                    Preparatory Secondary Vocational Education.
-                  </Text>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-          </Accordion>
-        </Box>
-      </Box>
-
-      {/* -------------------------- Work Experience --------------------------- */}
-      <Box bg="#fff" py={10} pl={{ base: 0, md: 2 }}>
-        <Box maxW="1200px" 
-             mx="auto"
-             pl={{ base: 6, md: 12 }}
-             >
-          <Heading
-            as="h2"
-            mb={10}
-            borderBottom="1px"
-            borderColor="gray.100"
-            pb={8}
-            variant="h2"
-          >
-            Work Experience
-          </Heading>
-        </Box>
-
-        {/* Accordion */}
-        <Box maxW="1200px" 
-             mx="auto" 
-             px={{ base: 7, md: 12 }}
-             >
-          <Accordion allowToggle>
-            {/* Work Experience 1 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Webdevelopment Training Programme @ Amsterdam Tech Academy
-                    </Text>
-                    <Text fontWeight="medium"> 10 / 2025 - 04 / 2026 </Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Amsterdam, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    Strengtening my skills in HTML, CSS and Bootstrap by working with a similar CMS as Wordpress. 
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["CSS", "HTML", "Bootstrap", "Canva", "Photopea", "Collaborate with Colleages"].map(
-                      (tag) => (
-                        <Box
-                          key={tag}
-                          px={3}
-                          py={1}
-                          bg="customBlue.25"
-                          borderRadius="md"
-                          fontSize="xs"
-                          fontWeight="bold"
-                        >
-                          {tag}
-                        </Box>
-                      )
-                    )}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Work Experience 2 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Full-time Parent of 2 while studying Webdevelopment
-                    </Text>
-                    <Text fontWeight="medium"> 01 / 2020 - 10 / 2025 </Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Haarlem, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    Taking care of my two kids (2 and 4) while studying Webdevelopment. 
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Time Management", "Multitasking", "Planning and Scheduling", "Patience", "Creative problem solving", "Active listening"].map(
-                      (tag) => (
-                        <Box
-                          key={tag}
-                          px={3}
-                          py={1}
-                          bg="customBlue.25"
-                          borderRadius="md"
-                          fontSize="xs"
-                          fontWeight="bold"
-                        >
-                          {tag}
-                        </Box>
-                      )
-                    )}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Work Experience 3 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                      Webdesigner @ MEO
-                    </Text>
-                    <Text fontWeight="medium"> 03 / 2018 - 02 / 2020 </Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Alkmaar, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://wijzijnmeo.nl/"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      https://wijzijnmeo.nl/
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    This was my first professional role in coding. I worked extensively with WordPress (WPBakery), CSS, HTML, and 
-                    Adobe Photoshop, WooCommerce and also created design mock-ups using Adobe XD. 
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["HTML", "CSS", "Wordpress", "Adobe XD", "Adobe Photoshop", "Woocommerce", "WPBakery"].map(
-                      (tag) => (
-                        <Box
-                          key={tag}
-                          px={3}
-                          py={1}
-                          bg="customBlue.25"
-                          borderRadius="md"
-                          fontSize="xs"
-                          fontWeight="bold"
-                        >
-                          {tag}
-                        </Box>
-                      )
-                    )}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-
-            {/* Work Experience 4 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                     Product Specialist Customer Support @ Visma
-                    </Text>
-                    <Text fontWeight="medium"> 02/2017 - 07/2017</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Amsterdam, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://www.visma.com/"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      https://www.visma.com/
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    Although my time here was brief, I gained valuable skills in customer communication, offering advice, and managing inquiries by phone and email about the software program Accountview.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Customer Service", "Accountview"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Work Experience 4 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                     Quality Assurance Internship @ Ahold AH
-                    </Text>
-                    <Text fontWeight="medium"> 02/2016 - 06/2016</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Zaandam, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://www.aholddelhaize.com/"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      https://www.aholddelhaize.com/
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    I completed my thesis at the Quality Assurance department at Albert Heijn’s headquarters in Zaandam. My research focused on the various health labels displayed on food packaging.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Food Labelling", "Costumer Research", "Het Vinkje", "Nutrition"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Work Experience 5 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                     Marketing Internship @ Ahold AH Allerhande
-                    </Text>
-                    <Text fontWeight="medium"> 07/2015 - 02/2016</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Zaandam, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://www.ah.nl/allerhande"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      https://www.ah.nl/allerhande
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    During my six-month internship in the Marketing department for Allerhande magazine, I contributed to marketing research, supported the development of marketing strategies, and ensured content quality through text proofreading. I also managed a range of administrative tasks, gaining valuable insight into both creative and operational aspects of marketing.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Costumer Research", "Marketing Research", "Marketing Strategies", "Administration", "Recipe Books"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-
-            {/* Work Experience 6 */}
-            <AccordionItem border="none" mb={4}>
-              <>
-                <h3>
-                  <AccordionButton
-                    bg="customBlue.500"
-                    color="white"
-                    _hover={{ bg: "customBlue.700" }}
-                    px={6}
-                    py={4}
-                    borderRadius="md"
-                    justifyContent="space-between"
-                  >
-                    <Text fontWeight="bold">
-                     Sales Assistant @ Kruidvat
-                    </Text>
-                    <Text fontWeight="medium"> 10/2008 - 06/2012</Text>
-                  </AccordionButton>
-                </h3>
-                <AccordionPanel
-                  bg="#fff"
-                  color="#4a5568"
-                  p={6}
-                  borderRadius="md"
-                >
-                  <Text fontSize="sm" mb={2}>
-                    📍 Haarlem, The Netherlands &nbsp;&nbsp; 🔗{" "}
-                    <Link
-                      href="https://www.kruidvat.nl/"
-                      isExternal
-                      color="customBlue.500"
-                    >
-                      https://www.kruidvat.nl/
-                    </Link>
-                  </Text>
-                  <Text fontSize="sm" mb={4}>
-                    While studying, I worked part-time as a sales assistant at the Kruidvat drugstore, where I strengthened my skills in sales and customer service.
-                  </Text>
-                  <HStack spacing={2} flexWrap="wrap">
-                    {["Customer Service", "Sales"].map((tag) => (
-                      <Box
-                        key={tag}
-                        px={3}
-                        py={1}
-                        bg="customBlue.25"
-                        borderRadius="md"
-                        fontSize="xs"
-                        fontWeight="bold"
-                      >
-                        {tag}
-                      </Box>
-                    ))}
-                  </HStack>
-                </AccordionPanel>
-              </>
-            </AccordionItem>
-          </Accordion>
-        </Box>
-      </Box>
-    </>
+      <ResumeSection
+        title="Work Experience"
+        data={workExperience}
+      />
+    </Box>
   );
 };
 
