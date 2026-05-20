@@ -190,11 +190,11 @@ export const HomePage = () => {
             Projects WINC Academy Course
           </Heading>
 
-          <Text fontSize="md" color="gray.600" pb={4}>
-            These three projects were created as part of the front-end developer course I recently completed at WINC Academy.
+          <Text fontSize="md" color="gray.600" pb={10}>
+            These two projects were created as part of the front-end developer course I recently completed at WINC Academy.
           </Text>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             <Stack spacing={4}>
               <Link href="https://my-recipe-grid.netlify.app/" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
@@ -214,16 +214,6 @@ export const HomePage = () => {
               <Text fontWeight="bold">Wildlotus</Text>
               <Text>An advanced yoga events app built with React Router and Chakra UI.</Text>
             </Stack>
-
-            <Stack spacing={4}>
-              <Link href="https://optimamed.netlify.app/" isExternal>
-                <AspectRatio ratio={16 / 6} w="90%">
-                  <Image src="/images/optimamed-logo.png" />
-                </AspectRatio>
-              </Link>
-              <Text fontWeight="bold">Optimamed</Text>
-              <Text>A medical homepage made with CSS Grid and Flexbox.</Text>
-            </Stack>
           </SimpleGrid>
         </Box>
       </Box>
@@ -242,11 +232,11 @@ export const HomePage = () => {
             Projects work experience programme
           </Heading>
 
-          <Text fontSize="md" color="gray.600" pb={4}>
+          <Text fontSize="md" color="gray.600" pb={10}>
             These two projects were created while i was doing my working experience programme.
           </Text>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             <Stack spacing={4}>
               <Link href="https://jm-dressage.netlify.app" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
