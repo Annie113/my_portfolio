@@ -28,7 +28,7 @@ export const HomePage = () => {
       >
         <Flex
           flex={1}
-          p={{ base: 10, md: 12 }}
+          p={{ base: 10, md: 14 }}
           pb={{ "2xl": 0 }}
           align="center"
           direction="column"
@@ -161,11 +161,12 @@ export const HomePage = () => {
           bg="customBlue.25"
           borderRadius={10}
           py={{ base: 12, md: 10 }}
-          px={{ base: 6, md: 12 }}
+          px={{ base: 4, md: 12 }}
           fontSize={{ base: "md", md: "lg", lg: "xl" }}
           fontWeight="semibold"
           color="gray.800"
-          my={10}
+          mt={{ base: 5, md: 10 }}
+          mb={{ base: 0, md: 10 }}
           lineHeight="1.8"
         >
           "I'm a perfectionistic and ambitious person with a strong drive for quality and results.
@@ -182,19 +183,19 @@ export const HomePage = () => {
           <Heading
             as="h2"
             fontWeight="bold"
-            mb={10}
+            mb={{ base: 4, md: 10 }}
             borderBottom="1px"
             borderColor="gray.100"
-            pb={8}
+            pb={{ base: 4, md: 10 }}
           >
             Projects WINC Academy Course
           </Heading>
 
-          <Text fontSize="md" color="gray.600" pb={10}>
+          <Text fontSize="md" color="gray.600" pb={{ base: 4, md: 10 }}>
             These two projects were created as part of the front-end developer course I recently completed at WINC Academy.
           </Text>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
             <Stack spacing={4}>
               <Link href="https://my-recipe-grid.netlify.app/" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
@@ -218,16 +219,16 @@ export const HomePage = () => {
         </Box>
       </Box>
 
-      {/* Projects 2 (duplicate) */}
-      <Box bg="#fff" py={10}>
+      {/* Projects 2 */}
+      <Box bg="#fff" py={{ base: 0, md: 10 }}>
         <Box maxW="1200px" mx="auto" px={{ base: 7, md: 12 }}>
           <Heading
             as="h2"
             fontWeight="bold"
-            mb={10}
+            mb={{ base: 4, md: 10 }}
             borderBottom="1px"
             borderColor="gray.100"
-            pb={8}
+            pb={{ base: 4, md: 10 }}
           >
             Projects work experience programme
           </Heading>
@@ -236,7 +237,7 @@ export const HomePage = () => {
             These two projects were created while i was doing my working experience programme.
           </Text>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
             <Stack spacing={4}>
               <Link href="https://jm-dressage.netlify.app" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
