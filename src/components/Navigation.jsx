@@ -42,7 +42,7 @@ export const Navigation = () => {
           <Flex align="center" gap={{ base: 4, md: 8 }}>
             <Text
               as={RouterLink}
-              pl={{ base: 8, md: 1 }}
+              pl={{ base: 5, md: 1 }}
               to="/"
               fontSize="2xl"
               fontWeight="bold"
@@ -53,6 +53,7 @@ export const Navigation = () => {
 
             <IconButton
               display={{ base: "inline-flex", md: "none" }}
+              pl={12}
               onClick={onToggle}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               variant="ghost"
@@ -92,10 +93,13 @@ export const Navigation = () => {
           spacing={4}
           display={{ md: "none" }}
           px={6}
-          pb={4}
+          pb={7}
+          borderBottom="1px solid #eaeaea"
+          mx="5"
         >
           {NAV_LINKS.map((link) => (
             <Button
+              pl={4}
               pb={4}
               key={link.to}
               as={NavLink}
@@ -115,9 +119,8 @@ export const Navigation = () => {
             as={RouterLink}
             to="/contact"
             variant="cta"
-            w="full"
-            px={6}
-            my={6}
+            w="100px"
+            px={2}
             onClick={onClose}
           >
             Contact

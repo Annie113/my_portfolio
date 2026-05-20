@@ -28,7 +28,7 @@ export const HomePage = () => {
       >
         <Flex
           flex={1}
-          p={{ base: 14 }}
+          p={{ base: 10, md: 12 }}
           pb={{ "2xl": 0 }}
           align="center"
           direction="column"
