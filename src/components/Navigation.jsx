@@ -95,7 +95,6 @@ export const Navigation = () => {
           px={6}
           pb={7}
           borderBottom="1px solid #eaeaea"
-          mx="5"
         >
           {NAV_LINKS.map((link) => (
             <Button

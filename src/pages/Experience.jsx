@@ -203,6 +203,7 @@ const ResumeAccordionItem = ({
         {/*----- ACCORDION BUTTONS -----*/}
         <AccordionButton
           bg="customBlue.500"
+
           color="white"
           borderRadius="xl"
           px={6}
@@ -304,12 +305,13 @@ const ResumeAccordionItem = ({
 
 const ResumeSection = ({ title, data }) => {
   return (
-    <Box py={{ base: 1, md: 10 }} px={{ base: 1, md: 8 }}>
-      <Container maxW="1200px">
+    <Box py={{ base: 1, md: 4, lg: 6 }} px={{ base: 1, md: 8 }}>
+      <Container maxW="1140px">
         <Heading
           as="h2"
           variant="h2"
           mb={6}
+          px={{ base: 1, md: 2 }}
           pb={5}
           borderBottom="1px solid"
           borderColor="gray.100"
@@ -336,7 +338,7 @@ const ResumeSection = ({ title, data }) => {
 
 export const Experience = () => {
   return (
-    <Box bg="white">
+    <Box bg="white" mt={{ base: 5 }}>
       <ResumeSection title="Studies" data={studies} />
 
       <ResumeSection

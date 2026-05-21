@@ -179,7 +179,7 @@ export const HomePage = () => {
       </Box>
 
       {/* Projects 1 */}
-      <Box bg="#fff" py={10}>
+      <Box bg="#fff" py={10} >
         <Box maxW="1200px" mx="auto" px={{ base: 7, md: 12 }}>
           <Heading
             as="h2"
@@ -204,7 +204,7 @@ export const HomePage = () => {
                 </AspectRatio>
               </Link>
               <Text fontWeight="bold">My Recipe App</Text>
-              <Text>A basic recipe app built with React Vite and Chakra UI.</Text>
+              <Text>A basic recipe app built with React Vite and Chakra UI. The data is stored as JSON in a local file and rendered dynamically with reusable components.</Text>
             </Stack>
 
             <Stack spacing={4}>
@@ -221,7 +221,7 @@ export const HomePage = () => {
       </Box>
 
       {/* Projects 2 */}
-      <Box bg="#fff" py={{ base: 0, md: 10 }}>
+      <Box bg="#fff" mb={{base: 6, md: 10}}>
         <Box maxW="1200px" mx="auto" px={{ base: 7, md: 12 }}>
           <Heading
             as="h2"

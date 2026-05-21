@@ -42,7 +42,7 @@ const ContactItem = ({ icon, children }) => (
     <Icon
       as={icon}
       boxSize={6}
-      color={ACCENT_COLOR}
+      color="customRed.100"
       transition="transform 0.2s ease-in-out"
       _groupHover={{ transform: 'translateX(6px)' }}
       aria-hidden="true"
@@ -182,22 +182,20 @@ const ContactPage = () => {
     <Box
       minH="100vh"
       py={{ base: 12, md: 16 }}
-      bgGradient="linear(to-b, gray.50, gray.100)"
     >
-      <Container maxW="6xl">
+      <Container maxW="1200px" px={{ base: 5, md: 12}}>
         {/* Header */}
         <Stack
           spacing={6}
-          textAlign="center"
           mb={{ base: 8, md: 12 }}
         >
-          <Heading size="2xl">Contact Me</Heading>
+          <Heading>Contact Me</Heading>
 
           <Text
             fontSize={{ base: 'md', md: 'lg' }}
+            px={1}
             color="gray.600"
             maxW="2xl"
-            mx="auto"
           >
             I’d love to hear from you. Reach out with
             questions, opportunities, or just to say hi!
@@ -392,7 +390,7 @@ const ContactPage = () => {
                   <Link
                     href="https://www.linkedin.com/in/anneliesarbouw/"
                     isExternal
-                    color={ACCENT_COLOR}
+                    color="customRed.100"
                   >
                     LinkedIn
                   </Link>
@@ -400,14 +398,14 @@ const ContactPage = () => {
                   <Link
                     href="https://github.com/Annie113"
                     isExternal
-                    color={ACCENT_COLOR}
+                    color="customRed.100"
                   >
                     GitHub
                   </Link>
 
                   <Link
                     href={`mailto:${CONTACT_EMAIL}`}
-                    color={ACCENT_COLOR}
+                    color="customRed.100"
                   >
                     Email
                   </Link>
