@@ -54,6 +54,7 @@ export const Navigation = () => {
             </Text>
 
             <IconButton
+              align="right" 
               display={{ base: "inline-flex", md: "none" }}
               pl={12}
               onClick={onToggle}
@@ -94,6 +95,7 @@ export const Navigation = () => {
       <Collapse in={isOpen} animateOpacity unmountOnExit>
         <Stack
           id={mobileMenuId}
+          align="right" 
           mt={6} 
           spacing={4}
           display={{ md: "none" }}
