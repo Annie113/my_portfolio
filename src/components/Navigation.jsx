@@ -46,7 +46,9 @@ export const Navigation = () => {
               to="/"
               fontSize="2xl"
               fontWeight="bold"
-              _hover={{ textDecoration: "none", color: "customRed.100" }}
+              _hover={{ textDecoration: "none", color: "customRed.100", bg: "transparent" }}
+              _active={{ bg: "transparent" }}
+              _focus={{ bg: "transparent" }}
             >
               Annelies Mälzer
             </Text>
@@ -60,6 +62,9 @@ export const Navigation = () => {
               aria-label="Toggle navigation menu"
               aria-controls={mobileMenuId}
               aria-expanded={isOpen}
+              _hover={{ bg: "transparent" }}
+              _active={{ bg: "transparent" }}
+              _focus={{ bg: "transparent" }}
             />
           </Flex>
 
