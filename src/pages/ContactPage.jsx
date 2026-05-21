@@ -181,7 +181,7 @@ const ContactPage = () => {
   return (
     <Box
       minH="100vh"
-      py={{ base: 12, md: 16 }}
+      py={{ base: 6, md: 16 }}
     >
       <Container maxW="1200px" px={{ base: 5, md: 12}}>
         {/* Header */}
