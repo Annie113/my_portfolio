@@ -10,7 +10,7 @@ import {
 
 const AboutPage = () => {
   return (
-    <Box pt={{ base: 12, md: 16 }} px={{ base: 1, md: 10}}>
+    <Box pt={{ base: 8, md: 12 }} px={{ base: 1, md: 10}}>
       <Container maxW="6xl">
         <Flex
           direction={{ base: 'column', md: 'row' }}
@@ -32,7 +32,7 @@ const AboutPage = () => {
           {/* Right Side: Text */}
           <Box flex={1}>
             <Stack spacing={{ base: 4, md: 10 }}>
-              <Heading mt={{ base: 6, md: 0 }} size="xl">About Me</Heading>
+              <Heading as="h1" mt={{ base: 6, md: 0 }} size="xl">About Me</Heading>
               <Text fontSize="lg" color="gray.700">
                 I’m Annelies, a dedicated <Text as="span" color="customRed.100" fontWeight="bold">front-end developer</Text> with a background in Nutrition and New Product Management. 
                 While my earlier career gave me valuable skills in communication, and project management, I discovered that 

@@ -44,7 +44,7 @@ export const Navigation = () => {
               as={RouterLink}
               pl={{ base: 0, md: 1 }}
               to="/"
-              fontSize="2xl"
+              fontSize="3xl"
               fontWeight="bold"
               _hover={{ textDecoration: "none", color: "customRed.100", bg: "transparent" }}
               _active={{ bg: "transparent" }}

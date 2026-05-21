@@ -181,7 +181,7 @@ const ContactPage = () => {
   return (
     <Box
       minH="100vh"
-      py={{ base: 6, md: 16 }}
+      py={{ base: 6, md: 12 }}
     >
       <Container maxW="1200px" px={{ base: 5, md: 12}}>
         {/* Header */}
@@ -189,7 +189,7 @@ const ContactPage = () => {
           spacing={6}
           mb={{ base: 8, md: 12 }}
         >
-          <Heading>Contact Me</Heading>
+          <Heading as="h1">Contact Me</Heading>
 
           <Text
             fontSize={{ base: 'md', md: 'lg' }}
