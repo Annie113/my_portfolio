@@ -10,18 +10,19 @@ import {
 
 const AboutPage = () => {
   return (
-    <Box pt={16}>
+    <Box pt={{ base: 12, md: 16 }} px={{ base: 1, md: 10}}>
       <Container maxW="6xl">
         <Flex
           direction={{ base: 'column', md: 'row' }}
           // justify="center"
         >
-          {/* Left Side: Image */}
+          {/* ------- ME IMAGE ------- */}
           <Box flex={1}>
             <Image
               src="/images/about.png"
               alt="About us"
               objectFit="cover"
+              ml={{xl: 2}}
               w="80%"
               borderRadius="xl"
               shadow="lg"
@@ -30,8 +31,8 @@ const AboutPage = () => {
 
           {/* Right Side: Text */}
           <Box flex={1}>
-            <Stack spacing={10}>
-              <Heading mt={{ base: 9, md: 0 }} size="xl">About Me</Heading>
+            <Stack spacing={{ base: 4, md: 10 }}>
+              <Heading mt={{ base: 6, md: 0 }} size="xl">About Me</Heading>
               <Text fontSize="lg" color="gray.700">
                 I’m Annelies, a dedicated <Text as="span" color="customRed.100" fontWeight="bold">front-end developer</Text> with a background in Nutrition and New Product Management. 
                 While my earlier career gave me valuable skills in communication, and project management, I discovered that 
@@ -50,9 +51,6 @@ const AboutPage = () => {
                 I’m now seeking a <Text as="span" color="customRed.100" fontWeight="bold">junior front-end development </Text>
                 position where I can contribute my skills, continue to grow, and create engaging, user-friendly digital 
                 experiences.
-              </Text>
-              <Text fontSize="lg" color="gray.700">
-
               </Text>
             </Stack>
           </Box>

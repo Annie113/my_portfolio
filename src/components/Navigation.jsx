@@ -42,7 +42,7 @@ export const Navigation = () => {
           <Flex align="center" gap={{ base: 4, md: 8 }}>
             <Text
               as={RouterLink}
-              pl={{ base: 5, md: 1 }}
+              pl={{ base: 0, md: 1 }}
               to="/"
               fontSize="2xl"
               fontWeight="bold"

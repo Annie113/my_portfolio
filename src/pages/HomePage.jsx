@@ -28,16 +28,17 @@ export const HomePage = () => {
       >
         <Flex
           flex={1}
-          p={{ base: 10, md: 14 }}
-          pb={{ "2xl": 0 }}
+          py={{ base: 8, md: 16 }}
+          px={{ base: 6, md: 14 }}
+          // pb={{ "2xl": 0 }}
           align="center"
           direction="column"
         >
           <VStack
             align="flex-start"
             spacing={5}
-            borderBottom="1px"
-            borderColor="gray.100"
+            borderBottom="1px solid" 
+            borderColor="gray.200"
           >
             <Text fontSize="sm" color="customRed.100" fontWeight="bold">
               HELLO!
@@ -92,9 +93,9 @@ export const HomePage = () => {
             p={3}
             bg="white"
             position="absolute"
-            right={{ base: 0, md: 12 }}
+            right={{ base: 6, md: 12 }}
             bottom={{ base: 0, md: 16, "2xl": 21 }}
-            w="90%"
+            w={{ base: "87%", md: "100%" }}
             justify="space-between"
             borderTop="1px solid"
             borderColor="gray.100"
@@ -156,7 +157,7 @@ export const HomePage = () => {
       {/* About */}
       <Box maxW="1200px" mx="auto" textAlign="center">
         <Text
-          maxW="90%"
+          maxW="92%"
           mx="auto"
           bg="customBlue.25"
           borderRadius={10}
@@ -233,11 +234,11 @@ export const HomePage = () => {
             Projects work experience programme
           </Heading>
 
-          <Text fontSize="md" color="gray.600" pb={10}>
+          <Text fontSize="md" color="gray.600" pb={5}>
             These two projects were created while i was doing my working experience programme.
           </Text>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 2, md: 10 }}>
             <Stack spacing={4}>
               <Link href="https://jm-dressage.netlify.app" isExternal>
                 <AspectRatio ratio={16 / 6} w="90%">
@@ -254,7 +255,7 @@ export const HomePage = () => {
                   <Image src="/images/eternal-vows.png" />
                 </AspectRatio>
               </Link>
-              <Text fontWeight="bold">Wildlotus</Text>
+              <Text fontWeight="bold">Eternal Vows</Text>
               <Text>A simple homgepage for a wedding and events company.</Text>
             </Stack>
 

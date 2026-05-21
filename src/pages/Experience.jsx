@@ -200,6 +200,7 @@ const ResumeAccordionItem = ({
   return (
     <AccordionItem border="none" mb={5}>
       <h3>
+        {/*----- ACCORDION BUTTONS -----*/}
         <AccordionButton
           bg="customBlue.500"
           color="white"
@@ -240,12 +241,12 @@ const ResumeAccordionItem = ({
           <AccordionIcon />
         </AccordionButton>
       </h3>
-
+      {/*----- ACCORDION INFORMATION CARD-----*/}
       <AccordionPanel
         bg="white"
         p={6}
         borderRadius="xl"
-        mt={2}
+        mt={5}
         border="1px solid"
         borderColor="gray.100"
       >
@@ -303,13 +304,13 @@ const ResumeAccordionItem = ({
 
 const ResumeSection = ({ title, data }) => {
   return (
-    <Box py={12}>
+    <Box py={{ base: 1, md: 10 }} px={{ base: 1, md: 8 }}>
       <Container maxW="1200px">
         <Heading
           as="h2"
           variant="h2"
-          mb={10}
-          pb={6}
+          mb={6}
+          pb={5}
           borderBottom="1px solid"
           borderColor="gray.100"
         >
