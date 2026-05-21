@@ -39,7 +39,7 @@ export const Navigation = () => {
           align="center"
         >
           {/* Logo + Mobile toggle */}
-          <Flex align="center" gap={{ base: 9, md: 8 }}>
+          <Flex align="right" gap={{ base: 9, md: 8 }}>
             <Text
               as={RouterLink}
               pl={{ base: 0, md: 1 }}
