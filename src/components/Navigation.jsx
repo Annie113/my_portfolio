@@ -54,9 +54,10 @@ export const Navigation = () => {
             </Text>
 
             <IconButton
-              align="right" 
-              display={{ base: "inline-flex", md: "none" }}
-              pl={12}
+              display={{ base: "flex-end", md: "none" }}
+              position="absolute"
+              right={6}
+              pl={{base: 10, md: 19}}
               onClick={onToggle}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               variant="ghost"
@@ -70,7 +71,7 @@ export const Navigation = () => {
           </Flex>
 
           {/* Desktop Nav */}
-          <Flex display={{ base: "none", md: "flex" }} align="center" gap={12}>
+          <Flex display={{ base: "none", md: "flex" }} align="right" gap={12}>
             {NAV_LINKS.map((link) => (
               <Button
                 key={link.to}
@@ -95,13 +96,14 @@ export const Navigation = () => {
       <Collapse in={isOpen} animateOpacity unmountOnExit>
         <Stack
           id={mobileMenuId}
-          align="right" 
           mt={6} 
           spacing={4}
           display={{ md: "none" }}
           px={6}
           pb={7}
           borderBottom="1px solid #eaeaea"
+          w="90%"
+          mx="auto"
         >
           {NAV_LINKS.map((link) => (
             <Button
