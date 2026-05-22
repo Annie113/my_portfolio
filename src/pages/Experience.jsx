@@ -305,7 +305,7 @@ const ResumeAccordionItem = ({
 
 const ResumeSection = ({ title, data }) => {
   return (
-    <Box py={{ base: 1, md: 4, lg: 6 }} px={{ base: 1, md: 8 }}>
+    <Box py={{ base: 1, md: 4, lg: 6 }} px={{ base: 1, md: 1 }}>
       <Container maxW="1140px">
         <Heading
           as="h2"
@@ -339,6 +339,16 @@ const ResumeSection = ({ title, data }) => {
 export const Experience = () => {
   return (
     <Box bg="white" mt={{ base: 5 }}>
+      <Container maxW="1140px" pt={{ base: 2, md: 8 }} px={{ base: 5, md: 12, lg: 6 }}>
+        <Heading
+          as="h1"
+          variant="h1"
+          mb={{ base: 6, md: 10 }}
+        >
+          My Experience
+        </Heading>
+      </Container>
+
       <ResumeSection title="Studies" data={studies} />
 
       <ResumeSection

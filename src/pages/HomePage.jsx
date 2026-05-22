@@ -44,7 +44,7 @@ export const HomePage = () => {
               HELLO!
             </Text>
 
-            <Heading fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold">
+            <Heading as="h1" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold">
               I'm Annelies{" "}
               <Text as="span" color="customBlue.500">
                 <br />
